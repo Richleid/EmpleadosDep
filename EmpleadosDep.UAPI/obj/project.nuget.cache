@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "y532QJDENpLod/Nu1AtHVBEskbfhp2qvb3XdOeDkeaeYphzlvVeH1y9o+lET5HYRwGWMNxIMtC27v39iDyAMSA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\richl\\source\\repos\\EmpleadosDep.Modelos\\EmpleadosDep.UAPI\\EmpleadosDep.UAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\richl\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,12 @@
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\bin\Debug\net6.0\EmpleadosDep.UAPI.deps.json
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\bin\Debug\net6.0\EmpleadosDep.UAPI.dll
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\bin\Debug\net6.0\EmpleadosDep.UAPI.pdb
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\obj\Debug\net6.0\EmpleadosDep.UAPI.csproj.AssemblyReference.cache
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\obj\Debug\net6.0\EmpleadosDep.UAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\obj\Debug\net6.0\EmpleadosDep.UAPI.AssemblyInfoInputs.cache
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\obj\Debug\net6.0\EmpleadosDep.UAPI.AssemblyInfo.cs
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\obj\Debug\net6.0\EmpleadosDep.UAPI.csproj.CoreCompileInputs.cache
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\obj\Debug\net6.0\EmpleadosDep.UAPI.dll
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\obj\Debug\net6.0\refint\EmpleadosDep.UAPI.dll
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\obj\Debug\net6.0\EmpleadosDep.UAPI.pdb
+C:\Users\richl\source\repos\EmpleadosDep.Modelos\EmpleadosDep.UAPI\obj\Debug\net6.0\ref\EmpleadosDep.UAPI.dll
