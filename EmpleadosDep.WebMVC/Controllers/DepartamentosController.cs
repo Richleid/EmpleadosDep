@@ -7,20 +7,25 @@ namespace EmpleadosDep.WebMVC.Controllers
 {
     public class DepartamentosController : Controller
     {
-        private string Url = "https://localhost:7119/api/Departamentos";
-        private Crud<Departamento> Crud = new Crud<Departamento>();
+        private string ApiUrl;
+        private Crud<Departamento> Crud;
 
+        public DepartamentosController(IConfiguration config)
+        {
+            ApiUrl = config["APIUrl"] + "/Departamentos";
+            Crud = new Crud<Departamento>();
+        }
         // GET: DepartamentosController
         public ActionResult Index()
         {
-            var datos = Crud.Select(Url);
+            var datos = Crud.Select(ApiUrl);
             return View(datos);
         }
 
         // GET: DepartamentosController/Details/5
         public ActionResult Details(int id)
         {
-            var datos = Crud.Select_ById(Url, id.ToString());
+            var datos = Crud.Select_ById(ApiUrl, id.ToString());
             return View(datos);
         }
 
@@ -37,7 +42,7 @@ namespace EmpleadosDep.WebMVC.Controllers
         {
             try
             {
-                Crud.Insert(Url, datos);
+                Crud.Insert(ApiUrl, datos);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -49,7 +54,8 @@ namespace EmpleadosDep.WebMVC.Controllers
         // GET: DepartamentosController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var datos = Crud.Select_ById(ApiUrl,id.ToString());
+            return View(datos);
         }
 
         // POST: DepartamentosController/Edit/5
@@ -59,7 +65,7 @@ namespace EmpleadosDep.WebMVC.Controllers
         {
             try
             {
-                Crud.Update(Url, id.ToString(), datos) ;
+                Crud.Update(ApiUrl, id.ToString(), datos) ;
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -71,7 +77,7 @@ namespace EmpleadosDep.WebMVC.Controllers
         // GET: DepartamentosController/Delete/5
         public ActionResult Delete(int id)
         {
-            var datos = Crud.Select_ById(Url, id.ToString());
+            var datos = Crud.Select_ById(ApiUrl, id.ToString());
             return View(datos);
         }
 
@@ -82,7 +88,7 @@ namespace EmpleadosDep.WebMVC.Controllers
         {
             try
             {
-                Crud.Delete(Url, id.ToString());
+                Crud.Delete(ApiUrl, id.ToString());
                 return RedirectToAction(nameof(Index));
             }
             catch

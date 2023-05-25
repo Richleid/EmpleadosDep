@@ -6,7 +6,7 @@
 
 <h1>Eliminar</h1>
 
-<h3>¿Seguro que quiere eliminar?</h3>
+<h3>¿Seguro que quieres eliminar?</h3>
 <div>
     <h4>Empleado</h4>
     <hr />
@@ -36,10 +36,10 @@
             @Html.DisplayFor(model => model.Salario)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DepartamentoId)
+            Departamento
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DepartamentoId)
+            @Html.DisplayFor(model => model.Departamento.Nombre)
         </dd>
     </dl>
     

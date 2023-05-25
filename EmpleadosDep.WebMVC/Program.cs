@@ -20,6 +20,15 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// para configurar el sitio web mvc en presentaciòn EN-US pero transmision de datos ES-ES
+var supportedCultures = new[] { "en-US" };
+var supportedUICultures = new[] { "es-ES" };
+
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supportedCultures[0])
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedUICultures);
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

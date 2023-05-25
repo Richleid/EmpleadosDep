@@ -2,30 +2,46 @@
 using EmpleadosDep.UAPI;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace EmpleadosDep.WebMVC.Controllers
 {
     public class EmpleadosController : Controller
     {
-        private Crud <Empleado> empleados = new Crud<Empleado> ();
-        private string Url = "https://localhost:7119/api/Empleados";
+        private string ApiUrl;
+        private Crud<Empleado> Crud;
+        public EmpleadosController(IConfiguration config)
+        {
+            ApiUrl = config["APIUrl"] + "/Empleados";
+            Crud = new Crud<Empleado>();
+        }
         // GET: EmpleadosController
         public ActionResult Index()
         {
-            var datos = empleados.Select(Url);
+            var datos = Crud.Select(ApiUrl);
             return View(datos);
         }
 
         // GET: EmpleadosController/Details/5
         public ActionResult Details(int id)
         {
-            var datos = empleados.Select_ById(Url, id.ToString());
+            var datos = Crud.Select_ById(ApiUrl, id.ToString());
             return View(datos);
         }
 
         // GET: EmpleadosController/Create
         public ActionResult Create()
         {
+            //Obtenemos la lista de departamentos para que sea usada en la vista en un combobox
+            var listaDepartamentos = new Crud<Departamento>()
+                .Select(ApiUrl.Replace("Empleados", "Departamentos"))
+                .Select(d => new SelectListItem  //Transformamos del tipo Departamento a seleclistItem
+                {
+                    Value = d.DepartamentoId.ToString(), //id Departamento
+                    Text = d.Nombre                      // Nombre departamento
+                })
+                .ToList();
+            ViewBag.ListaDepartamentos = listaDepartamentos; //Pasamos la lista de departamentos a la vista
             return View();
         }
 
@@ -36,7 +52,7 @@ namespace EmpleadosDep.WebMVC.Controllers
         {
             try
             {
-                empleados.Insert(Url, datos);
+                Crud.Insert(ApiUrl, datos);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -48,7 +64,8 @@ namespace EmpleadosDep.WebMVC.Controllers
         // GET: EmpleadosController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var datos = Crud.Select_ById(ApiUrl, id.ToString());
+            return View(datos);
         }
 
         // POST: EmpleadosController/Edit/5
@@ -58,7 +75,7 @@ namespace EmpleadosDep.WebMVC.Controllers
         {
             try
             {
-                empleados.Update(Url, id.ToString(), datos);
+                Crud.Update(ApiUrl, id.ToString(), datos);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -70,18 +87,18 @@ namespace EmpleadosDep.WebMVC.Controllers
         // GET: EmpleadosController/Delete/5
         public ActionResult Delete(int id)
         {
-            var datos = empleados.Select_ById(Url,id.ToString());
+            var datos = Crud.Select_ById(ApiUrl, id.ToString());
             return View(datos);
         }
 
         // POST: EmpleadosController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id,Empleado datos)
+        public ActionResult Delete(int id, Empleado datos)
         {
             try
             {
-                empleados.Delete(Url, id.ToString());
+                Crud.Delete(ApiUrl, id.ToString());
                 return RedirectToAction(nameof(Index));
             }
             catch
